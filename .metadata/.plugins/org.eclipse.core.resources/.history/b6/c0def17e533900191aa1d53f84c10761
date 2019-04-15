@@ -1,0 +1,27 @@
+
+public class RunHW4 {
+
+	public static void main(String[] args) {
+
+		car car1 = new car("honda", "SUV", "2017", "Black");
+		car car2 = new car("Audi", "Sports", "2018", "Red");
+		car car3 = new car("ford", "focus", "2015", "White");
+		
+		System.out.println(car1.getDescription());
+		System.out.println(car2.getDescription());
+		System.out.println(car3.getDescription());
+		
+		CarBehavior cb = new CarBehavior("This is a Good car");
+		CarBehavior cd = new CarBehavior("This is a Expensive car");
+		CarBehavior ca = new CarBehavior("This is a Cheap car");
+		
+		car1.setCarStrategy(ca);
+		car2.setCarStrategy(cb);
+		car3.setCarStrategy(cd);
+		System.out.println(car1.getDescription());
+		System.out.println(car2.getDescription());
+		System.out.println(car3.getDescription());
+				
+	}
+
+}

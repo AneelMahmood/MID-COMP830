@@ -1,0 +1,38 @@
+package obsever;
+
+public class WorkItem {
+	private String ItemID;
+	private long WorkerID;
+	private String Message;
+
+	public WorkItem(String ItemID, long WorkerID, String Message) {
+		this.ItemID = String.parseLong(ItemID);
+		this.WorkerID = WorkerID;
+		this.Message = Message;
+	}
+
+	public String getItemID() {
+		return ItemID;
+	}
+	
+	public long getWorkerID() {
+		return WorkerID;
+	}
+	
+	public String getMessage() {
+		return Message;
+	}
+
+	public void setItemID(String itemID) {
+		this.ItemID = itemID;
+	}
+	
+	public void setWorkerID(long workerID) {
+		WorkerID = workerID;
+	}
+	
+	public void setMessage(String message) {
+		Message = message;
+	}
+	
+}

@@ -1,0 +1,39 @@
+package command;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class CommandInvoker {
+
+	private List<CommandInterface> commandList;
+	int index;
+	
+	public CommandInvoker() {
+		commandList = new ArrayList<>();
+		index = -1;
+	}
+	
+	public void setCommand(CommandInterface cmd) {
+		commandList.add(cmd);
+		index++;
+	}
+	
+	public void execute() {
+		System.out.print("executing the move " + (index + 1) + " ");
+		commandList.get(index).execute();	
+	}
+	public boolean undo() {
+		if (index < 0)
+			return false;
+		System.out.print("Undoing the move " + (index + 1) + " ");
+		commandList.get(index).undo();	
+		index--;
+		return true;
+	}
+	
+	public void clearCommandList() {
+		commandList.clear();
+		index = -1;
+	}
+
+}

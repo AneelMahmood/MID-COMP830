@@ -1,0 +1,52 @@
+package obsever;
+
+import java.util.ArrayList;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class WorkManagerImplementation implements WorkManager {
+
+	private List<Observer> observers;
+	private WorkItem WorkItem;
+	
+	
+	public WorkManagerImplementation() {
+		observers = new ArrayList<>();
+	}
+	
+    
+    @Override
+    public void addobserver(observer o) {
+        this.observer.add(o);
+        
+    }
+
+    @Override
+    public void removeobserver(observer o) {
+        int i = observer.indexOf(o);
+        if (i >= 0) {
+        	observer.remove(i);
+        }
+        
+    }
+
+    @Override
+    public void notifyobservers() {
+    	WorkItem tempWorkItem = WorkItem;
+    	for (int i = 0; i < observer.size(); i++) {
+    		Worker worker = (Worker) observer.get(i);
+    		tempWorkItem = worker.update(WorkItem);
+    		
+    		if (tempWorkItem != null) {
+    			this.WorkItem = tempWorkItem;
+    			System.out.println(worker.getWorkerID() + ": Completed work on WorkItem<" + WorkItem.getItemID() + ">");
+    		}
+
+    		if (WorkItem.getItemID() > 4) {
+    			break;
+    		}
+    		
+    	}
+    			
+    }
